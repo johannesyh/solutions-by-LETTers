@@ -1,1 +1,4 @@
+All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modelling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
+A blank line is needed between any two neibourghing entries.
+
 poj-1212; xxmlala; 20190928; dp, kmp;-
