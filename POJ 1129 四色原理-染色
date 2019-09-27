@@ -1,0 +1,117 @@
+OJ-ID： 
+	POJ-1129
+
+author：
+	Caution_X
+
+date of submission：
+	20190927
+
+tags：
+	DFS+四色原理的应用
+
+description modelling：
+	给定n个点的无向连通图，问至少需要几种颜色可以完成染色
+
+major steps to solve it：
+	1.任选从一点开始染色
+	2.DFS不断向其他点进行染色
+	3.所有点都染过色，结束DFS
+
+warnings：
+	根据四色原理，所有的图都可以用四种颜色完成染色
+
+AC code:
+
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <string>
+#include <cctype>
+#include <vector>
+#include <cstdio>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <map>
+#include <set>
+#define maxn 360
+#define _ll __int64
+#define ll long long
+#define INF 0x3f3f3f3f
+#define Mod 1000000007
+#define pp pair<int,int>
+#define ull unsigned long long
+#define max(x,y) ( ((x) > (y)) ? (x) : (y) )
+#define min(x,y) ( ((x) > (y)) ? (y) : (x) )
+using namespace std;
+int n, ans, ok, vis[28];
+bool ma[28][28];
+bool check(int u, int sb)
+{
+    for (int i = 1; i <= n; i++)
+        if (ma[u][i] && vis[i] == sb) {
+            return 0;
+        }
+ 
+    return 1;
+}
+void dfs(int u, int s)
+{
+ 
+    if (ok) {
+        return ;
+    }
+ 
+    if (u == n + 1) {
+        ans = s;
+        ok = 1;
+        return ;
+    }
+ 
+    for (int k = 1; k <= s; k++) {
+        if (check(u, k)) {
+            vis[u] = k;
+            dfs(u + 1, s);
+        }
+    }
+ 
+    vis[u] = ++s;
+    dfs(u + 1, s);
+}
+int main()
+{
+    char s[38];
+ 
+    while (scanf("%d", &n) != EOF && n) {
+        memset(ma, 0, sizeof(ma));
+        memset(vis, 0, sizeof(vis));
+        getchar();
+ 
+        for (int i = 1; i <= n; i++) {
+            scanf("%s", s);
+            int len = strlen(s);
+ 
+            for (int j = 2; j <= len - 1; j++) {
+                ma[i][s[j] - 'A' + 1] = 1;
+                ma[s[j] - 'A' + 1][i] = 1;
+            }
+        }
+ 
+        ok = 0;
+        dfs(1, 1);
+ 
+        if (ans == 1) {
+            puts("1 channel needed.");
+        } else {
+            printf("%d channels needed.\n", ans);
+        }
+    }
+ 
+    return 0;
+}
+
+
+
+
+
