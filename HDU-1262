@@ -1,0 +1,53 @@
+OJ-ID: HDU-1262;
+
+author: Caution_X;
+
+date: 20190922;
+
+tags: 暴力+欧拉筛;
+
+description modelling: 给定一个数n，输出a,b满足a+b=n且a,b为素数且|a-b|最小;
+
+major steps:欧拉筛预处理素数，然后遍历所有素数即可，循环结束条件为素数大于n/2;
+
+AC code:
+#include<bits/stdc++.h>
+using namespace std;
+bool u[10005];
+int su[10005];
+int num;
+void olas()
+{
+	num=1;
+	memset(u,true,sizeof(u));
+	for(int i=2;i<=10000;i++)
+	{
+		if(u[i])	su[num++]=i;
+		for(int j=1;j<num;j++)
+		{
+			if(i*su[j]>10000)	break;
+			u[i*su[j]]=false;
+			if(i%su[j]==0)	break;
+		}
+	}
+}
+int main()
+{
+	//freopen("input.txt","r",stdin);
+	olas();
+	int a;
+	while(~scanf("%d",&a))
+	{
+		int ans1,ans2;
+		for(int i=1;i<num;i++)
+		{
+			if(su[i]>a/2)	break;
+			if(u[a-su[i]])
+			{
+				ans1=su[i];
+				ans2=a-su[i];
+			}
+		}
+		printf("%d %d\n",ans1,ans2);
+	}
+}
