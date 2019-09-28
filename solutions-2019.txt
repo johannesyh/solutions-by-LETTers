@@ -1,9 +1,35 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
-hdu-2973; Keaya; 20190927; Waleson Theory;-
+hdu-2973; xxmlala; 20190927; Waleson Theory;-
 计算一个复杂代数式的值;-
 威尔逊原理：对于素数p,有(p-1)!=-1( mod p).-
 首先，将原式变形为[ (3×k+6)! % (3×k+7) + 1] / (3×k+7)，所以：-
 (1)3×k+7是素数，结果为1,-
 (2)3×k+7不是素数，则假设（3×k+7）=m1*m2*m3……，可知m1,m2,m3……<=3*k+6,则此时（3×k+6)! % (3×k+7) = 0,所以经过取整，式子的答案为0;.
+
+poj-1313; Kaeya; 20190927; simulation;-
+给一个n表示有1~n为有内容的页码，用最少的纸张做成折叠小册，使页码按册子翻页的顺序排好，从最外面的纸张开始输出每张纸上的正面反面的页码;-
+每一面的页码对应一个最小一个最大，一个次大一个次小……以此类推，正面右半页为小页码，背面左半页为小页码，模拟即可。;.
+
+CodeForces 580D; xxmlala; 20190927; States Compressing DP;-
+每道菜都对应一个满意度，并且相互之间以特定的顺序排列有不同的满意度加成，从n道菜中选择m道，使得满意度最大;-
+状态压缩dp裸题，以吃到的菜为状态，求解dp值即可;.
+
+poj-1129; Caution_X; 20190927; DFS,graph theory,four colour theorem;-
+给定n个点的无向连通图，问至少需要几种颜色可以完成染色;-
+(1)任选从一点开始染色-
+(2)DFS不断向其他点进行染色-
+(3)所有点都染过色，结束DFS;.
+
+hdu-1262; Caution_X; 20190927; brute force, Eular filter;-
+给定一个数n，输出a,b满足a+b=n且a,b为素数且|a-b|最小;-
+欧拉筛预处理素数，然后遍历所有素数即可，循环结束条件为素数大于n/2;.
+
+CodeForce 113B; Caution_X; 20190927; DP;-
+求多个数列的LCS;-
+(1)dp[i]:表示以数字i结尾得到的LCS，pos[i][j]表示数字j再第i个数列的位置，cnt[i]表示数字i出现了几次-
+(2)从每个数列第一个数开始往后遍历，当cnt[i]=k时说明i可以作为LCS的一部分了-
+(3)接下来需要讨论一下，在LCS中加入i对答案的影响-
+(4)我们用vector<>存入所有可以作为LCS一部分的值，然后遍历vector中的数，判断二者的pos，来决定i应该插入在哪一个位置-
+(5)遍历完成后vector<>加入i并且重新从2步骤开始;.
