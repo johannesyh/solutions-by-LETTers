@@ -1,6 +1,12 @@
-20190930
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
+
+hdu-1493;author;Caution_X;20190930;DP;-
+description modelling：投掷10次骰子，掷出的点数概率已给出，问掷完后落在5, 12, 22, 29, 33, 38, 42, 46, 50 55点上的概率。;-
+major steps to solve it：;-
+(1) dp[i][j]:=第j次投在第i格上的概率，p[]:=各个点的概率;-
+(2) dp[i][1]=p[i];-
+(3) dp[i+k][j+1]+=dp[i][j]*p[k];.
 
 poj-2006;Caution_X;20190929;卡常的水题;-
 description modelling：给定电离平衡常数Ka，溶液未电离时的浓度C，1mol 酸的氢含量n和酸根含量m 计算PH;-
