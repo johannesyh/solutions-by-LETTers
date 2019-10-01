@@ -1,0 +1,50 @@
+All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
+Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
+
+hdu-1493;author;Caution_X;20190930;DP;-
+description modelling：投掷10次骰子，掷出的点数概率已给出，问掷完后落在5, 12, 22, 29, 33, 38, 42, 46, 50 55点上的概率。;-
+major steps to solve it：;-
+(1) dp[i][j]:=第j次投在第i格上的概率，p[]:=各个点的概率;-
+(2) dp[i][1]=p[i];-
+(3) dp[i+k][j+1]+=dp[i][j]*p[k];.
+
+poj-2006;Caution_X;20190929;卡常的水题;-
+description modelling：给定电离平衡常数Ka，溶液未电离时的浓度C，1mol 酸的氢含量n和酸根含量m 计算PH;-
+major steps to solve it：;-
+(1) 常规化学题的推导：设[H+]=x,[酸根]=y，则Ka=x*y/(C-y),x/y=n/m.;-
+(2) 记Ka=a,C=b,解得：ans=(-log10((-a+sqrt(a*a+(4.0*a*b*n*m)))/(2.0*m))).l-
+warnings：sqrt(n/m)会导致精度不足，用sqrt(n*m)/m来替代则AC;.
+
+hdu-1760;Caution_X;20190929;DFS+博弈;-
+description modelling：给定N×M的方格，0为可放方格，1为不可放方格，现在开始轮流放正方形方块，每个方块占4格，由A先开始放，问A能否必胜;-
+major steps to solve it：;-
+(1) 博弈中的必胜态：当前所能到达的状态能到达一个必败态，则当前状态为必胜态。;-
+(2) 博弈中的必败态：若当前状态到达的所有状态都是必胜态，则当前状态为必败态。;-
+(3) DFS直到不能再放方块，则不能再放方块的那个状态为必败态，然后往前回溯直到最初的状态即可;.
+
+CodeForce 117C;Caution_X;20190930;DFS;-
+description modelling：给定一个有向图，边权都为1，问能否找到权值和为3的环，找到则输出对应的点标号，否则输出-1 ;-
+major steps to solve it：;-
+(1) vis[]表示该点是否访问过;-
+(2) 从一个未被访问过的点开始DFS，找到与该点相连且未被访问过的点继续DFS;-
+(3) 如果形成了环，结束DFS，否则继续2操作;.
+
+hdu-1723;Caution_X;20190930;DP;-
+description modelling：;-
+给定N,M，表示有1~N个人排成一列，前一个人可以向后M个人传递消息，问第N个人有多少种方式接收第一个人传出的消息;-
+major steps to solve it：;-
+(1) dp[i]:=第i个人接收消息的方式有几种;-
+(2) if(i-1<=M) dp[i]++;-
+(3) dp[i+j]+=dp[i] j∈{1,2,3......M};.
+
+hdu-1719;Caution_X;20190930;数学推导;-
+Friend number are defined recursively as follows;-
+(1) numbers 1 and 2 are friend number;-
+(2) if a and b are friend numbers, so is ab+a+b;-
+(3) only the numbers defined in (1) and (2) are friend number;-
+Now your task is to judge whether an integer is a friend number;-
+major steps to solve it：;-
+1.设n是Friend数，则n=ab+a+b=(a+1)*(b+1)-1   =>   n+1=(a+1)*(b+1);-
+2.a,b都是Friend数,所以a+1=(a'+1)*(b'+1),b+1=(a''+1)*(b''+1)直到a,b=1,2;-
+3.那么：n+1= 2^x * 3^y;-
+warnings：0需要特判 ;.
