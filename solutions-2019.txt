@@ -21,7 +21,7 @@ hdu-1493;author;Caution_X;20190930;DP;-
 
 poj-2006;Caution_X;20190929;easy;-
 给定电离平衡常数Ka，溶液未电离时的浓度C，1mol 酸的氢含量n和酸根含量m 计算PH;-
-(1) 常规化学题的推导：设[H+]=x,[酸根]=y，则Ka=x*y/(C-y),x/y=n/m.-
+(1) 常规化学题的推导：设[H+]=x,[酸根]=y，则Ka=x*y/(C-y)--①,x/y=n/m--②，又PH=-log([H+])--③，联立①②③结合求根公式可得(2)中ans.-
 (2) 记Ka=a,C=b,解得：ans=(-log10((-a+sqrt(a*a+(4.0*a*b*n*m)))/(2.0*m))).l;-
 sqrt(n/m)会导致精度不足，用sqrt(n*m)/m来替代则AC.
 
