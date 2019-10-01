@@ -1,14 +1,96 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
-A blank line is needed between any two neighbouring entries.
+Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
-HDU-1760; Kaeya; 20190930; dfs+博弈;-
+HDU-1760; Kaeya; 20190930; dfs, game;-
 n*m的棋盘上轮流放2*2的方块，最后一个不能放下的人输，问先放的人能不能赢;-
-1.能到达一个必败态的是必胜态-
-2.所有下一个状态为必胜态的是必败态-
-dfs找出必败态再往回推每一个状态即可;.
+(1)能到达一个必败态的是必胜态-
+(2)所有下一个状态为必胜态的是必败态-
+(3)dfs找出必败态再往回推每一个状态即可;.
 
-CodeForces-117C; Kaeya; 20190930; 思维;-
+CodeForces-117C; Kaeya; 20190930; dfs, graphs;-
 给定一个竞赛图（任意两点有且只有一条单向边），问是否存在三元环;-
-1.竞赛图必定能生成一条链（链中排在后面的点可以指向前面的所有点）-
-2.若链中靠前的点指向一个新点（不在链中），新点指向一个靠后的点则这三个点形成一个三元环-
-每次判断一个新点能否与链上的点形成三元环，如果可以则找到答案，若不能，则将该点添加到链中，重复此步骤;.
+(1)竞赛图必定能生成一条链（链中排在后面的点可以指向前面的所有点）-
+(2)若链中靠前的点指向一个新点（不在链中），新点指向一个靠后的点则这三个点形成一个三元环-
+(3)每次判断一个新点能否与链上的点形成三元环，如果可以则找到答案，若不能，则将该点添加到链中，重复此步骤;.
+
+hdu-1493;author;Caution_X;20190930;DP;-
+投掷10次骰子，掷出的点数概率已给出，问掷完后落在5, 12, 22, 29, 33, 38, 42, 46, 50 55点上的概率。;-
+(1) dp[i][j]:=第j次投在第i格上的概率，p[]:=各个点的概率-
+(2) dp[i][1]=p[i]-
+(3) dp[i+k][j+1]+=dp[i][j]*p[k];.
+
+poj-2006;Caution_X;20190929;easy;-
+给定电离平衡常数Ka，溶液未电离时的浓度C，1mol 酸的氢含量n和酸根含量m 计算PH;-
+(1) 常规化学题的推导：设[H+]=x,[酸根]=y，则Ka=x*y/(C-y),x/y=n/m.-
+(2) 记Ka=a,C=b,解得：ans=(-log10((-a+sqrt(a*a+(4.0*a*b*n*m)))/(2.0*m))).l;-
+sqrt(n/m)会导致精度不足，用sqrt(n*m)/m来替代则AC.
+
+hdu-1760;Caution_X;20190929;DFS, game;-
+给定N×M的方格，0为可放方格，1为不可放方格，现在开始轮流放正方形方块，每个方块占4格，由A先开始放，问A能否必胜;-
+(1) 博弈中的必胜态：当前所能到达的状态能到达一个必败态，则当前状态为必胜态。-
+(2) 博弈中的必败态：若当前状态到达的所有状态都是必胜态，则当前状态为必败态。-
+(3) DFS直到不能再放方块，则不能再放方块的那个状态为必败态，然后往前回溯直到最初的状态即可;.
+
+CodeForce 117C;Caution_X;20190930;DFS;-
+给定一个有向图，边权都为1，问能否找到权值和为3的环，找到则输出对应的点标号，否则输出-1;-
+(1) vis[]表示该点是否访问过-
+(2) 从一个未被访问过的点开始DFS，找到与该点相连且未被访问过的点继续DFS-
+(3) 如果形成了环，结束DFS，否则继续2操作;.
+
+hdu-1723;Caution_X;20190930;DP;-
+给定N,M，表示有1~N个人排成一列，前一个人可以向后M个人传递消息，问第N个人有多少种方式接收第一个人传出的消息;-
+(1) dp[i]:=第i个人接收消息的方式有几种-
+(2) if(i-1<=M) dp[i]++-
+(3) dp[i+j]+=dp[i] j∈{1,2,3......M};.
+
+hdu-1719;Caution_X;20190930;math;-
+Friend number are defined recursively as follows-
+(1) numbers 1 and 2 are friend number-
+(2) if a and b are friend numbers, so is ab+a+b-
+(3) only the numbers defined in (1) and (2) are friend number-
+Now your task is to judge whether an integer is a friend number;-
+(1)设n是Friend数，则n=ab+a+b=(a+1)*(b+1)-1   =>   n+1=(a+1)*(b+1)-
+(2)a,b都是Friend数,所以a+1=(a'+1)*(b'+1),b+1=(a''+1)*(b''+1)直到a,b=1,2-
+(3)那么：n+1= 2^x * 3^y;-
+0需要特判.
+
+poj-1695;xxmlala;20190930;DP;-
+要求用三辆车往n座城市投递货物，起点都在一号城市，每辆车可以载任意数量的货物，投递顺序必须与城市编号递增序一致，并且，每次同时都只能有一辆车在跑路。求最短总路径之和。-
+DP:dp[i][j][k]=min(dp[i][j][k],dp[i+1][j][k]+g[i][i+1],dp[i+1][i][k]+g[j][i+1],dp[i+1][i][j]+g[k][i+1]);-
+对于该方程-
+(1)首先，i表示此时状态所到达的最大城市编号，j,k为其余两车所在城市-
+(2)采用倒序状态转移，即由dp[n][j][k]逐步转移到dp[1][1][1]-
+(3)三辆车完全相同，因此不需要考虑其顺序，某一时刻三辆车所处城市编号从大到小依次是i,j,k时，下一步可能是j->i+1,i->i+1,k->i+1;.
+
+hdu-2973; xxmlala; 20190927; Waleson Theory;-
+计算一个复杂代数式的值;-
+威尔逊原理：对于素数p,有(p-1)!=-1( mod p).-
+首先，将原式变形为[ (3×k+6)! % (3×k+7) + 1] / (3×k+7)，所以：-
+(1)3×k+7是素数，结果为1,-
+(2)3×k+7不是素数，则假设（3×k+7）=m1*m2*m3……，可知m1,m2,m3……<=3*k+6,则此时（3×k+6)! % (3×k+7) = 0,所以经过取整，式子的答案为0;.
+
+poj-1313; Kaeya; 20190927; simulation;-
+给一个n表示有1~n为有内容的页码，用最少的纸张做成折叠小册，使页码按册子翻页的顺序排好，从最外面的纸张开始输出每张纸上的正面反面的页码;-
+每一面的页码对应一个最小一个最大，一个次大一个次小……以此类推，正面右半页为小页码，背面左半页为小页码，模拟即可。;.
+
+CodeForces 580D; xxmlala; 20190927; States Compressing DP;-
+每道菜都对应一个满意度，并且相互之间以特定的顺序排列有不同的满意度加成，从n道菜中选择m道，使得满意度最大;-
+状态压缩dp裸题，以吃到的菜为状态，求解dp值即可;.
+
+poj-1129; Caution_X; 20190927; DFS,graph theory,four colour theorem;-
+给定n个点的无向连通图，问至少需要几种颜色可以完成染色;-
+(1)任选从一点开始染色-
+(2)DFS不断向其他点进行染色-
+(3)所有点都染过色，结束DFS;.
+
+hdu-1262; Caution_X; 20190927; brute force, Eular filter;-
+给定一个数n，输出a,b满足a+b=n且a,b为素数且|a-b|最小;-
+欧拉筛预处理素数，然后遍历所有素数即可，循环结束条件为素数大于n/2;.
+
+CodeForce 113B; Caution_X; 20190927; DP;-
+求多个数列的LCS;-
+(1)dp[i]:表示以数字i结尾得到的LCS，pos[i][j]表示数字j再第i个数列的位置，cnt[i]表示数字i出现了几次-
+(2)从每个数列第一个数开始往后遍历，当cnt[i]=k时说明i可以作为LCS的一部分了-
+(3)接下来需要讨论一下，在LCS中加入i对答案的影响-
+(4)我们用vector<>存入所有可以作为LCS一部分的值，然后遍历vector中的数，判断二者的pos，来决定i应该插入在哪一个位置-
+(5)遍历完成后vector<>加入i并且重新从2步骤开始;.
