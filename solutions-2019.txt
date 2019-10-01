@@ -1,6 +1,18 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-1760; Kaeya; 20190930; dfs, game;-
+n*m的棋盘上轮流放2*2的方块，最后一个不能放下的人输，问先放的人能不能赢;-
+(1)能到达一个必败态的是必胜态-
+(2)所有下一个状态为必胜态的是必败态-
+(3)dfs找出必败态再往回推每一个状态即可;.
+
+CodeForces-117C; Kaeya; 20190930; dfs, graphs;-
+给定一个竞赛图（任意两点有且只有一条单向边），问是否存在三元环;-
+(1)竞赛图必定能生成一条链（链中排在后面的点可以指向前面的所有点）-
+(2)若链中靠前的点指向一个新点（不在链中），新点指向一个靠后的点则这三个点形成一个三元环-
+(3)每次判断一个新点能否与链上的点形成三元环，如果可以则找到答案，若不能，则将该点添加到链中，重复此步骤;.
+
 hdu-1493;author;Caution_X;20190930;DP;-
 投掷10次骰子，掷出的点数概率已给出，问掷完后落在5, 12, 22, 29, 33, 38, 42, 46, 50 55点上的概率。;-
 (1) dp[i][j]:=第j次投在第i格上的概率，p[]:=各个点的概率-
