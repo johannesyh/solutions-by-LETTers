@@ -1,6 +1,16 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-122E; Kaeya; 20191002; Cantor expansion，math;-
+给定n和k(n,k<=10^9)，求1~n的按字典序的第k个序列中，下标和对应位置的数都是幸运数字（只含4或7的数）的个数;-
+(1)10^9内的幸运数只有1022个，用dfs搜索记录下来-
+(2)13个数的全排列大于10^9，即对于n>13，只用对最后13个数康托展开-
+把1~(n-13)的幸运数个数加起来，加上后面13个位置中满足条件的幸运数即可;.
+
+CodeForces-119C; Kaeya; 20191002; dp;-
+给定n天，m门课，数k，每门课作业量区间[a,b]和难度c。现要使每天一门课，并且每天难度递增，作业量是前一天的+k或*k(第一天在区间内任选)，并使总作业量最大;-
+给课程按难度小到大排序，用三维数组记录所有状态————第i天选第j门课作业量为k时（a,b很大而b-a<=100，所以用k记录左端点的偏移量）的总作业量;.
+
 CodeForces-119C;xxmlala;20191002;DP;-
 从m门课选出n个排到n天，每天一门，难度须递增，每门课对应着一个作业量Xi，且Xi = Xi-1 + k or Xi - Xi-1 * k,总作业量要尽可能大,问能否排布，若能排布，求方案;-
 建立一个三维DP数组，dp[i][j][k]，i表示第i天，j表示第i天时排了第j门课，k表示选择的作业量为第j门课作业区间的左端点＋k;
