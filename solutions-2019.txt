@@ -1,6 +1,18 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-109D;xxmlala;20191002;thought&simulation;-
+给出一组数，要求从小到大排序，并且排序的过程中，发生交换的两个数至少一个为幸运数（十进制位均为4或7），问能否在（2×n）次交换内完成排序，如果能，输出交换的方案（不要求步骤数最少）。-
+首先分为两种情况：-
+　　1.所有的数均不为幸运数，则如果给出的序列已经排好序，答案为0,如果未排好序，则无法完成排序。-
+　　2.存在幸运数，可得，只要存在幸运数，就一定能在2×n次以内完成排序。-
+　　　　<1>具体的处理方法是将序列分为若干个闭环，闭环的意思可以举个例子来看，（xio表示下标为xi的元素排序后所在位置下标）,如：x1->x2->x3->x1，这就是一个闭环，表示x1o==x2,x2o=x3,x3o=x1;-
+　　　　<2>首先，一组数在上述规则下一定能分为若干闭环。-
+　　　　<3>分完闭环后，正式进行交换，并且，确定一个幸运数作为操作数（需要且只需要一个），记录其所在闭环-
+　　　　　　3.1首先，将操作数所在闭环进行排序（只需相邻之间两两交换即可，具体可参照上文对于闭环的定义）。-
+　　　　　　3.2再借助操作数对剩余闭环依次排序。第一步为将操作数与待排序闭环中的任意元素交换，再用3.1中的方法操作，最后将操作数归位即可。-
+　　　　　　3.3很容易证明，上述交换操作的总复杂度一定小于2×n.
+      
 poj-1695;xxmlala;20190930;DP;-
 要求用三辆车往n座城市投递货物，起点都在一号城市，每辆车可以载任意数量的货物，投递顺序必须与城市编号递增序一致，并且，每次同时都只能有一辆车在跑路。求最短总路径之和。-
 DP:　dp[i][j][k]=min(dp[i][j][k],dp[i+1][j][k]+g[i][i+1],dp[i+1][i][k]+g[j][i+1],dp[i+1][i][j]+g[k][i+1]);-
