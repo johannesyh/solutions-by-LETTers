@@ -1,8 +1,16 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-119C;xxmlala;20191002;DP;-
+从m门课选出n个排到n天，每天一门，难度须递增，每门课对应着一个作业量Xi，且Xi = Xi-1 + k or Xi - Xi-1 * k,总作业量要尽可能大,问能否排布，若能排布，求方案;-
+建立一个三维DP数组，dp[i][j][k]，i表示第i天，j表示第i天时排了第j门课，k表示选择的作业量为第j门课作业区间的左端点＋k。需要注意的地方是还应建立pre数组来标记DP路径.
+
+poj2217;xxmlala;20191002;suffixArray;-
+求两个字符串的最长公共子串长度;-
+后缀数组高度数组模板题.
+
 CodeForces-109D;xxmlala;20191002;thought&simulation;-
-给出一组数，要求从小到大排序，并且排序的过程中，发生交换的两个数至少一个为幸运数（十进制位均为4或7），问能否在（2×n）次交换内完成排序，如果能，输出交换的方案（不要求步骤数最少）。-
+给出一组数，要求从小到大排序，并且排序的过程中，发生交换的两个数至少一个为幸运数（十进制位均为4或7），问能否在（2×n）次交换内完成排序，如果能，输出交换的方案（不要求步骤数最少）;-
 首先分为两种情况：-
 　　1.所有的数均不为幸运数，则如果给出的序列已经排好序，答案为0,如果未排好序，则无法完成排序。-
 　　2.存在幸运数，可得，只要存在幸运数，就一定能在2×n次以内完成排序。-
@@ -14,7 +22,7 @@ CodeForces-109D;xxmlala;20191002;thought&simulation;-
 　　　　　　3.3很容易证明，上述交换操作的总复杂度一定小于2×n.
       
 poj-1695;xxmlala;20190930;DP;-
-要求用三辆车往n座城市投递货物，起点都在一号城市，每辆车可以载任意数量的货物，投递顺序必须与城市编号递增序一致，并且，每次同时都只能有一辆车在跑路。求最短总路径之和。-
+要求用三辆车往n座城市投递货物，起点都在一号城市，每辆车可以载任意数量的货物，投递顺序必须与城市编号递增序一致，并且，每次同时都只能有一辆车在跑路。求最短总路径之和;-
 DP:　dp[i][j][k]=min(dp[i][j][k],dp[i+1][j][k]+g[i][i+1],dp[i+1][i][k]+g[j][i+1],dp[i+1][i][j]+g[k][i+1]);-
 　　对于该方程-
 　　　　1.首先，i表示此时状态所到达的最大城市编号，j,k为其余两车所在城市-
