@@ -1,6 +1,37 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+poj-2803;Caution_X;20191004;imitate;-
+description modelling：处理至多一个前缀和后缀;-
+major steps to solve it：;-
+(1).先处理前缀后将字符串前缀删去;-
+(2).处理后缀;.
+
+poj-2782;Caution_X;20191004;greed;-
+description modelling：把n个东西装箱，每个东西有权值a[i]，每个箱最多装两个且最多装权值和为k，问最少要几个箱子？;-
+major steps to solve it：;-
+(1).按权值从大到小排序;-
+(2).权值最大的东西i和权值最小的东西j装在一起同时i++,j--，如果不能把最大最小装在一起，就只装权值最大的东西同时i++;.
+
+poj-2935;Caution_X;20191004;bfs;-
+description modelling：走迷宫问题，问最小步数;-
+major steps to solve it：;-
+(1).建图：因为本题的点和墙比较特殊，先把地图扩大到原来两倍再处理;-
+(2).常规bfs;-
+warnings：注意本题的建图;.
+
+CodeForce 359C;Caution_X;20191004;math;-
+description modelling：;-
+计算s,t的gcd。;-
+输入a0,a1,a2,.....an,x;-
+s=x^(a0+a1+a2+....+an).;-
+t=x^(a1+a2+...+an)+x^(a0+a2+a3+....+an)+.....+x^(a0+a1+a2+.....+a(n-1)).;-
+major steps to solve it：;-
+(1).提取分子上幂最小的数（根据t,s的关系可知该数一定可以和s整除）;-
+(2).比较提取的幂和(a0+a1+...an)的大小;-
+(3).快速幂取模输出答案;-
+warnings：分子可能比分母大;.
+
 CodeForces-122E; Kaeya; 20191002; Cantor expansion，math;-
 给定n和k(n,k<=10^9)，求1~n的按字典序的第k个序列中，下标和对应位置的数都是幸运数字（只含4或7的数）的个数;-
 (1)10^9内的幸运数只有1022个，用dfs搜索记录下来-
