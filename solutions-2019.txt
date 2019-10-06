@@ -1,6 +1,10 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-358D; Kaeya; 20191004; DP;-
+给n只兔子喂食，每只兔子获得好感度不同，相邻的兔子先被喂食该兔子获得的好感度也不同;-
+从前向后，两种状态，下一只兔子先喂食和这一只兔子先喂食;.
+
 CodeForces-122E; Kaeya; 20191002; Cantor expansion，math;-
 给定n和k(n,k<=10^9)，求1~n的按字典序的第k个序列中，下标和对应位置的数都是幸运数字（只含4或7的数）的个数;-
 (1)10^9内的幸运数只有1022个，用dfs搜索记录下来-
