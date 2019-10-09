@@ -2,7 +2,7 @@ All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, 
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
 POJ-1941; Kaeya; 20191006; implementation;-
-n=1一个三角形，n=2三个n=1的三角形组成的大三角形，给定n输出对应三角形;
+n=1一个三角形，n=2三个n=1的三角形组成的大三角形，依此类推，给定n(n<=10)输出对应三角形;
 很容易想到递归解决，但实现需要一定思维，递归时同时记录偏移值，初始化数组时直接赋值上空格免去麻烦，输出时使用字符串输出（单个会超时）;.
 
 POJ-3414; Kaeya; 20191006; bfs;-
@@ -18,7 +18,7 @@ CodeForces-128D; Kaeya; 20191006; implementation;-
 统计每个数的个数，从最小的数开始，记录两端的数，把所有数加进来之后判断(4);.
 
 CodeForces-358D; Kaeya; 20191004; DP;-
-给n只兔子喂食，每只兔子获得好感度不同，相邻的兔子先被喂食该兔子获得的好感度也不同;-
+给n只兔子喂食，每只兔子可以获得好感度a或b或c，a表示相邻的兔子还没有喂食能获得的好感度，b表示相邻的有一只兔子先喂食了，c表示相邻的两只都喂食了;-
 从前向后，两种状态，下一只兔子先喂食和这一只兔子先喂食;.
 
 CodeForces-122E; Kaeya; 20191002; Cantor expansion，math;-
