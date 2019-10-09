@@ -1,6 +1,17 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-1051; Kaeya; 20191008; dp;-
+有一台切木头的机器，切第一个需要耗费时间1，如果接着切长度l和重量w均大于等于前一个木头的l’和w’，则不需要花费时间，给n个木头，以及每个木头的l和w，问最少需要多少时间切完;-
+(1)假设l由小到大排序，此时w如果也满足小到大，则可以放在一组切，一共花费时间1-
+将一个维度排序，保证一个值递增，在剩下的一个维度找有多少个最长不下降子序列，即求最长下降子序列长度，(n<=10^5)需要用O(nlogn)的dp求法;.
+
+CodeForces-148E； Kaeya; 20191007; dp;-
+有n个架子，每个架子上有Ai个物品摆成一排，每次只能从一个架子的左端或右端取一个物品，一共取m个物品，求能取得的最大价值;-
+(1)每个架子取了k个物品后不影响其他架子取的情况，无后效性-
+(2)每个架子取k个物品有最优解，可以用dp求解，dpr[i][j]表示左边取i个右边取j个的价值-
+最后问题转换为m容量的背包取n个物品，每个物品的重量与对应价值在(2)中求得，dp[i][j]表示前i个架子取j个物品的最大价值;.
+
 POJ-1941; Kaeya; 20191006; implementation;-
 n=1一个三角形，n=2三个n=1的三角形组成的大三角形，依此类推，给定n(n<=10)输出对应三角形;
 很容易想到递归解决，但实现需要一定思维，递归时同时记录偏移值，初始化数组时直接赋值上空格免去麻烦，输出时使用字符串输出（单个会超时）;.
