@@ -1,6 +1,26 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+POJ-1941; Kaeya; 20191006; implementation;-
+n=1一个三角形，n=2三个n=1的三角形组成的大三角形，依此类推，给定n(n<=10)输出对应三角形;
+很容易想到递归解决，但实现需要一定思维，递归时同时记录偏移值，初始化数组时直接赋值上空格免去麻烦，输出时使用字符串输出（单个会超时）;.
+
+POJ-3414; Kaeya; 20191006; bfs;-
+两个水壶分别可以装a，b的水，3个操作，把水壶装满，倒空水壶，从一个倒入另一个，求最小步数得到c的水量(a,b<=100);-
+分支的情况很多而且复杂，没有简单的思路，但是总情况并不多a*b=10^4，用bfs找出最小步数，并记录过程即可;.
+
+CodeForces-128D; Kaeya; 20191006; implementation;-
+给n个数字，问能否围成一个环，且满足相邻的两个数相差为1;-
+(1)最小的数只能与次小的数相邻-
+(2)与最小的数组合完，剩下的次小的数只能与次次小的数相邻，依次类推-
+(3)当比前一个数大1的个数大于前一个数的个数，并且两端均为前一个数，则把他放在两端，比如212-
+(4)只在乎能不能成环，所以只用记录链两端的数，最后判断首位相接是否满足条件-
+统计每个数的个数，从最小的数开始，记录两端的数，把所有数加进来之后判断(4);.
+
+CodeForces-358D; Kaeya; 20191004; DP;-
+给n只兔子喂食，每只兔子可以获得好感度a或b或c，a表示相邻的兔子还没有喂食能获得的好感度，b表示相邻的有一只兔子先喂食了，c表示相邻的两只都喂食了;-
+从前向后，两种状态，下一只兔子先喂食和这一只兔子先喂食;.
+
 CodeForces-122E; Kaeya; 20191002; Cantor expansion，math;-
 给定n和k(n,k<=10^9)，求1~n的按字典序的第k个序列中，下标和对应位置的数都是幸运数字（只含4或7的数）的个数;-
 (1)10^9内的幸运数只有1022个，用dfs搜索记录下来-
