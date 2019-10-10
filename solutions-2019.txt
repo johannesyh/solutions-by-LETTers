@@ -1,16 +1,63 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+hdu-1030;Caution_X;20191010;regular;-
+description modelling：给定图，问两个数字之间的“距离”;-
+major steps to solve it：将给定图分为3个图，两个数字之间的距离就是两个数字分别在3个图中的距离之和，三个图分别是原图中抽离出只有横线，只有右斜线和只有左斜线;.
+
+poj-1007;Caution_X;20191010;easy problem;-
+description modelling：-
+(1).输入若干个字符串，按“有序”到“无序”顺序输出（这些串只含有A,C,G,T）-
+(2).有序的定义为该串的逆序数，若逆序数相同，则按原来的顺序输出;-
+major steps to solve it：-
+(1).记录所在串各个字母的个数-
+(2).遍历整个串，每次遍历到当前字母时加上与该字母逆序的字母的个数，然后该串中此字母个数-1-
+(3).sort排序后输出;-
+warnings：注意审题，逆序数相同时按照原来的顺序输出;.
+
+hdu-1219;Caution_X;20191010;STL;-
+description modelling：输入一段话，输出这段话各个小写字母出现的次数;-
+warnings：-
+(1).输出时每个样例之间有空行-
+(2).map<>需要clear;.
+
+poj-3404;Caution_X;20191010;Ad Hoc;-
+description modelling：n个人过桥，每个人过桥用时已给出，桥只能承载两个人，过河需要火炬，但是只有一个火炬，问最短过河时间;-
+major steps to solve it：-
+1.两个人过桥之后需要有人把火炬送回来-
+2.以未过桥的四个人为一个单位，记为a,b,c,d其中a最快，b次快，c最慢，d次慢，分两种情况，①：每次都由最快的人把火炬送回来②：由最快帮助最慢过河，次快帮助次慢过河,步骤为a,b先过河，然后a回来，c,d一起过河，然后b回来带a过河-
+两种方式耗时为：①：2a+c+d ②：2b+a+c-
+3.每次以四人为单位选择过河方式直到剩下的人不足四人为止;-
+warnings：思维误区：容易认为方案一是唯一最有效方案;.
+
+CodeForce 359C;Caution_X;20191004;math;-
+description modelling：-
+计算s,t的gcd。-
+输入a0,a1,a2,.....an,x-
+s=x^(a0+a1+a2+....+an)-
+t=x^(a1+a2+...+an)+x^(a0+a2+a3+....+an)+.....+x^(a0+a1+a2+.....+a(n-1));-
+major steps to solve it：-
+(1).提取分子上幂最小的数（根据t,s的关系可知该数一定可以和s整除）-
+(2).比较提取的幂和(a0+a1+...an)的大小-
+(3).快速幂取模输出答案;-
+warnings：分子可能比分母大;.
+
+poj-3624;Caution_X;20191006;01bag+space optimization;01bag;-
+major steps to solve it：-
+(1).dp[i]:=容量为i时的最大价值-
+(2).dp[j]=max(dp[j],dp[j-w[i]]+v[i]);-
+warnings：不使用空间优化会MLE;.
+
 poj-2803;Caution_X;20191004;imitate;-
 description modelling：处理至多一个前缀和后缀;-
-major steps to solve it：;-
-(1).先处理前缀后将字符串前缀删去;-
+major steps to solve it：-
+(1).先处理前缀后将字符串前缀删去-
 (2).处理后缀;.
 
 poj-2782;Caution_X;20191004;greed;-
 description modelling：把n个东西装箱，每个东西有权值a[i]，每个箱最多装两个且最多装权值和为k，问最少要几个箱子？;-
-major steps to solve it：;-
-(1).按权值从大到小排序;-
+major steps to solve it：-
+(1).按权值从大到小排序-
 (2).权值最大的东西i和权值最小的东西j装在一起同时i++,j--，如果不能把最大最小装在一起，就只装权值最大的东西同时i++;.
 
 poj-2935;Caution_X;20191004;bfs;-
