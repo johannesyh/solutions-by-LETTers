@@ -1,6 +1,35 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+POJ-1941;xxmlala;20191012;ditui;-
+用‘\’,'/','_'按照给定规则画出三角形;-
+思路：题中的三角形生成规则是符合递推关系的，可以先手动完成第一个三角形，再根据题中规律逐级递推，推出每个三角形的图案，需要的时候直接查询即可;-
+注：输出时不能用%C，会超时，除此之外，每一行行末多余的空格也时不能输出同时也没必要输出的，因此需要处理图案时在行末手动加上‘\0',再以%s输出.
+
+POJ-3414;xxmlala;20191012;BFS;-
+有两个有着固定容量的茶壶，初始时都为空，要求用FILL，POUR，DROP三种操作来准确地得到C值，输出最少次数及操作方案;-
+以两茶壶均为空为初始状态，每次对六种操作进行枚举，BFS加记录路径即可.
+
+CodeForces-359C;xxmlala;20191012;mathematics;-
+已知X，数组arr[n],求一个分式的分子与分母的最大公因数。分子为ΣX^arr[i],分母为X^Σarr[i]，数组为不递减序列;-
+(1)容易想到，分子的最低次幂即可能为所需答案-
+(2)由于arr里存在相同的数，因此分子的各个幂存在可以合并同类项的情况，所以应该先彻底完成合并同类项，再进行步骤1-
+(3)一个小技巧，并不需要完成所有项的合并，当且仅当当前最小项的系数可以被X整除时才需要继续合并，否则当前项的次数即为答案所需次数;-
+特别需要注意的是：完成合并后，分子的最低次幂的次数是有可能大于分母的次数的，所以应该取二者的较小值作为答案的次数.
+
+HihoCoder-1636;xxmlala;20191012;DP;-
+有n堆石头，盘古每次可以选择连续的x堆合并，所需时间为x堆石头的数量之和，x∈[l,r],现在要求，能否将石头合并成一堆，如果能，最短时间是多少;-
+(1)区间DP的运用，DP[i][j][k],表示当前状态下[i,j]这个区间分成了k堆-
+(2)状态转移：-
+(2.1)k=1时，dp[i][j][k]=min(dp[i][j][D]+num[j]-num[i-1]),其中D∈[l,r],-
+(2.2)k!=1时，dp[i][j][k]=min(dp[i][z][1]+dp[z+1][j][k-1]),（合并成k堆时，可以转化为k-1堆与1堆合并，此时就是区间DP的思路了）.
+
+CodeForces-125D;xxmlala;20191012;mathematics;-
+将一列数划分为两个等差数列;-
+(1)主要运用了鸽巢原理-
+(2)假如能完成题设操作，则前三个数中，必有至少两个数在同一序列，枚举三种情况（a1 a2,a2 a3,a1 a3分别为等差数列的前两项）;-
+注：枚举情况时，如果操作失败，则将已成功生成的等差数列末项划分到另一个数列试试（稍作思考即可）.
+
 HDU-1051; Kaeya; 20191008; dp;-
 有一台切木头的机器，切第一个需要耗费时间1，如果接着切长度l和重量w均大于等于前一个木头的l’和w’，则不需要花费时间，给n个木头，以及每个木头的l和w，问最少需要多少时间切完;-
 (1)假设l由小到大排序，此时w如果也满足小到大，则可以放在一组切，一共花费时间1-
