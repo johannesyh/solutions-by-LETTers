@@ -1,6 +1,16 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-574D; Kaeya; 20191018; dp;-
+n列，每一列有Ai个方块，每次删除没有被包围的方块，问多少次删完;-
+(1)三角型需要一层一层的删除，如1 2 1需要两次删除-
+(2)最大的三角型删除的同时，其他的小三角型会被删除，所以问题转化为找最大的三角型-
+两个dp数组，分别记录从左向右和从右向左的最长连续上升子串，两个dp相同位置的最小值即为该位置三角型的高度，所有三角型的高度的最大值即为所求;.
+
+CodeForces-577B; Kaeya; 20191018; dp;-
+n个数，问是否存在一个子序列使得，所有数的和被m整除;-
+用dp记录能取到的除以m的余数，从第一个数开始，在dp记录的能取得的余数的基础上加上这个数的和除以m的余数也是可以取到的，如果出现了余数为0，则可以找到该子序列，dp会出现重复取同一个数的情况，可以用滚动数组解决;.
+
 POJ-3404;xxmlala;20191012;mathematics;-
 n个极限速度不同的人要过桥，一开始所有人在桥的一边，每次最多两个人同时过桥，过桥时需要用一把火炬并且全场只有一把火炬，问所有人到达桥的另外一边所需最短时间;-
 (1)凭直觉很多人都会立刻想到每次都让最快的人在桥两边来回陪同其他人过桥，但是当遇到类似于1  2    10  11，这种，最优解为   1 2，1，10 11，2，1 2，并不是1 2，1，1 10，1，1 11.-
