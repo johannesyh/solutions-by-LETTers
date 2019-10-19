@@ -1,6 +1,28 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+poj-3230;Caution_X;20191019;dp;-
+给定一个有小正方形组成的不规则图形，现在进行操作:每次都消去暴露在外面的小正方形，问需要几次操作才能消去所有小正方形？;-
+1.dp1[i]:=以第i列为最后一列从前往后可以得到的连续上升子序列-
+2.dp2[i]:=以第i列为最后一列从后往前可以得到的连续上升子序列-
+备注：此处连续上升子序列是指可以找到排列成阶梯状的连续上升格子，例如小正方形排列为3 3 3 ，此时仍有连续上升子序列1(3) 2(3) 3 -
+3.对每一列dp取min（dp1,dp2），ans=max(dp[i]);.
+
+poj-3256;Caution_X;20191019;dfs;-
+有n个岛，岛之间有单向边，每个岛都有牛，共k头牛，问有几个岛可以使得牛能够聚会;-
+1.dfs得出每个岛能够使多少牛到来-
+2.若该岛能够使k头牛都到，则该岛满足条件;.
+
+CodeForce 577B;Caution_X;20191019;dp;-
+给一个序列，找一个子序列使之mod m =0;-
+dp[i]:表示取模后得到了i-
+遍历序列，对每一个元素更新dp，判断能否得到dp[0];.
+
+poj-3230;Caution_X;20191019;dp;-
+某人去旅行一趟，输入包含从城市i->j的花费cost[i][j]和第i天待在城市j可以得到的钱w[i][j]，求m天后的最大钱数;-
+dp[i][j]:=第i天待在第j个成=城市得到的最大金钱-
+dp[i][j]=max(dp[i][j],dp[i-1][k]-cost[k][j]+w[i][j]);.
+
 hdu-1704;Caution_X;20191017;dfs;-
 n个人，m场比赛，输出有多少种选择(a,b)使得不知道a,b谁胜谁负;-
 (1). dfs每一个人的比赛，将所有的间接战胜表示出来（间接战胜:a->b,b->c   =>  a->c）-
