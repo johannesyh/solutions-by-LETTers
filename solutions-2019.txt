@@ -1,6 +1,13 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-6071; Kaeya; 20191021; dijkstra;-
+4个点围成正方形，一个点只能到相邻的两个点，从2号点出发，求回到2号点且大于路程大于k的最短距离;-
+(1)取w=min(d12,d23),如果有一条路可以回到2号且路程为m，则m+2w(即再到相邻的点来回一次)也能回到2号-
+(2)m%2w可以再走n个2w直至m+2wn刚好大于k,由此算得的m+2nw必定满足k<=(m+2wn)<k+2w-
+(3)m%2w的余数有限，问题转换为求回到2号时，取得各个余数的最短路径-
+用dijkstra求出所有上述路径，最后加上2w直至大于k后比较各个路径的长度,取最小值;.
+
 CodeForces-574D; Kaeya; 20191018; dp;-
 n列，每一列有Ai个方块，每次删除没有被包围的方块，问多少次删完;-
 (1)三角型需要一层一层的删除，如1 2 1需要两次删除-
