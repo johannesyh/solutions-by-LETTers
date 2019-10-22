@@ -1,6 +1,19 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-5584; Kaeya; 20191020; math;-
+在点(x,y)时，取x，y的最小公倍数n，下一步可以走到(x+n,y)或(x,y+n)，现给出终点，问可能为起点的数目;-
+(1)n一定为x和y的整数倍，则有x+n>y,y+n>x,所以当一个点确定，最多只有一个点能到达该点(或者没有)-
+(2)问题转化为由终点逆推最远的起点，统计中间经过的点(包括自身)的个数即为答案-
+(3)x,y任意一个加上n得到的新值的gcd仍保持不变-
+由上面几点可得公式(Y为终点的较大值,则X=x)Y-lcm(x,y)=y，kx+y=Y(k为整数)，可推出k=Y/(gcd(X,Y)+X)若k不为整数则(X,Y)无法由其他点到达;.
+
+HDU-5583; Kaeya; 20191020; math;-
+给出一个01数组排成一行，最多可以改变一个数(0变1或1变0)，求所有连续相同字串的长度平方和;-
+(1)平方和中，最大的数加一的平方增量大于任意一个数减一的平方的减少量，问题转换为求最长的子串(最长子串为整个串时除外)使其长度加一，相邻的较短串长度减一-
+(2)如果减去长度1的子串长度本身为1，则此时得到的子串长度为将该减去的子串两端的子串长度相加再加1-
+从左向右记录长度，将平方加到总和里，并比较相邻的两个串长度，按上述的思路找到最大的增值，最后在总和上加上增值即为答案;
+
 HDU-6071; Kaeya; 20191021; dijkstra;-
 4个点围成正方形，一个点只能到相邻的两个点，从2号点出发，求回到2号点且大于路程大于k的最短距离;-
 (1)取w=min(d12,d23),如果有一条路可以回到2号且路程为m，则m+2w(即再到相邻的点来回一次)也能回到2号-
