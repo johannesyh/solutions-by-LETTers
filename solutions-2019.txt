@@ -1,6 +1,29 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+poj-3307;Caution_X;20191022;math;-
+定义一个数为“生产力数”：该数可由其他数每个位上的数相乘得来，那么这个数就叫“生产力数”-
+现在对所有的生产力数从小到大排序，输入i，输出第i个生产力数;-
+(1) 由其他数每个位上的数相乘得来 => 该数可由1~9相乘得来 => 该数可由质数2,3,5,7（唯一分解定理）相乘得来-
+(2) 枚举所有仅由2，3，5，7相乘得来的数，排序即可;-
+我们用来存生产力数的数组的大小是自己开的，由于事先不确定由多少个生产力数，所以数组可以开的大一点，当时开到[80000]就AC了.
+
+CodeForce-208B;Caution_X;20191022;dfs;-
+有n张牌排成一排，从最后一张往前看，假设此时最后一张牌位置在x-
+那么如果x-3位置或者x-1位置的牌和x位置的牌有相同的值或者相同的花色，那么就可以把第x张牌放在第x-3或者第x-1张牌上面，以此类推-
+问：能否完成n-1次合并;-
+(1) 首先预处理所有的牌，用M[i][j]来表示第i位置的牌可不可以叠在第j位置的牌上-
+(2) 然后dfs，如果遇到当前状态的牌无法继续往下叠，那么记录当前状态作为其他支路的剪枝;-
+记忆化搜索，暴搜TLE.
+
+hdu-5478;Caution_X;20191022;math;-
+输入C,k1,b1,k2,要求输出所有符合a^(k1*n+b1) + b^(k2*n-k2+1) = 0  (mod C) && (1<=a,b<C)  (n=0,1,2,3.......)的(a,b);-
+当n=0时 a^(b1)+b^(1-k2) = 0 (mod C) -----①-
+当n=1时 a^(k1+b1)+b = 0 (mod C) ------②-
+将①*a^k1 得到 a^(k1+b1) +b*(a^k1 / b^k2) = 0 (mod C) ------③-
+比较②和③可以得到a^k1=b^k2 (mod C) -
+又b=C-a^(k1+b1) (mod C)，所以只要暴力枚举a的值代入式子 a^k1=b^k2 (mod C) 即可，若相等则当前(a,b)可行;.
+
 hdu-5584;Caution_X;20191021;math;-
 青蛙跳，每次移动从(x,y)->(x,y+lcm(x,y))或(x,y)->(x+lcm(x,y),y);-
 设当前位置(at,bt)，则下一步为(at(1+b),bt)或(at,bt(1+a))-
