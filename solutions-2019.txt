@@ -1,6 +1,15 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-5573; Kaeya; 20191020; math;-
+给一棵k层的完全二叉树，权值对应下标，给出n<=2^k，求一条从1到第k层的路，并使得路上的权值作加法或减法最后等于k;-
+(1)n<=2^k，而且最左侧的点的权值与2进制位权值相同，当n<2^k,将最左侧的数相加必定大于n-
+(2)最高位取负时得到的值为负，所以最高位一定取正-
+(3)左侧数的和m减去其中一个数a，得到的数m-2a-
+(4)由(3)，n为奇数时，(m-n)后得到需要减去的数的两倍，除以二后对应二进制的位权与左侧点权相同，即减去相应位权的点-
+(5)n为偶数时，左侧最高位取第二个数则可以同上述奇数情况，此时n==2^k也满足条件-
+所以根据n奇偶讨论即可;.
+
 HDU-5584; Kaeya; 20191020; math;-
 在点(x,y)时，取x，y的最小公倍数n，下一步可以走到(x+n,y)或(x,y+n)，现给出终点，问可能为起点的数目;-
 (1)n一定为x和y的整数倍，则有x+n>y,y+n>x,所以当一个点确定，最多只有一个点能到达该点(或者没有)-
