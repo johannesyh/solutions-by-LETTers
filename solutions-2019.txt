@@ -2,7 +2,7 @@ All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, 
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
 HDU-2282; Kaeya; 20191024; maximum matching;-
-n盒子围成一个环，一共不超过n个巧克力，给出每个盒子初始巧克力个数，要求最后每个箱子只能不超过一颗巧克力，问最小步数;
+n盒子围成一个环，一共不超过n个巧克力，给出每个盒子初始巧克力个数，要求最后每个箱子只能不超过一颗巧克力，问最小步数;-
 (1)将巧克力与盒子二分，巧克力到每个盒子的距离为边权，每个巧克力最终都与一个盒子匹配-
 (2)要使边权总和最小，即带权值的最大匹配，km算法-
 预处理将每颗巧克力到每个盒子的距离算出并取反(km模板为最大权值最大匹配)，跑一次km即可;.
