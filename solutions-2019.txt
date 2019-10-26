@@ -1,6 +1,9 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-1165; Kaeya; 20191026; math;-
+
+
 HDU-2282; Kaeya; 20191024; maximum matching;-
 n盒子围成一个环，一共不超过n个巧克力，给出每个盒子初始巧克力个数，要求最后每个箱子只能不超过一颗巧克力，问最小步数;-
 (1)将巧克力与盒子二分，巧克力到每个盒子的距离为边权，每个巧克力最终都与一个盒子匹配-
