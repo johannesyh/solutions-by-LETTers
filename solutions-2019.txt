@@ -1,6 +1,12 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-2282; Kaeya; 20191024; maximum matching;-
+n盒子围成一个环，一共不超过n个巧克力，给出每个盒子初始巧克力个数，要求最后每个箱子只能不超过一颗巧克力，问最小步数;-
+(1)将巧克力与盒子二分，巧克力到每个盒子的距离为边权，每个巧克力最终都与一个盒子匹配-
+(2)要使边权总和最小，即带权值的最大匹配，km算法-
+预处理将每颗巧克力到每个盒子的距离算出并取反(km模板为最大权值最大匹配)，跑一次km即可;.
+
 poj-3307;Caution_X;20191022;math;-
 定义一个数为“生产力数”：该数可由其他数每个位上的数相乘得来，那么这个数就叫“生产力数”-
 现在对所有的生产力数从小到大排序，输入i，输出第i个生产力数;-
@@ -8,7 +14,7 @@ poj-3307;Caution_X;20191022;math;-
 (2) 枚举所有仅由2，3，5，7相乘得来的数，排序即可;-
 我们用来存生产力数的数组的大小是自己开的，由于事先不确定由多少个生产力数，所以数组可以开的大一点，当时开到[80000]就AC了.
 
-CodeForce-208B;Caution_X;20191022;dfs;-
+CodeForces-208B;Caution_X;20191022;dfs;-
 有n张牌排成一排，从最后一张往前看，假设此时最后一张牌位置在x-
 那么如果x-3位置或者x-1位置的牌和x位置的牌有相同的值或者相同的花色，那么就可以把第x张牌放在第x-3或者第x-1张牌上面，以此类推-
 问：能否完成n-1次合并;-
@@ -66,7 +72,7 @@ HDU-6071; Kaeya; 20191021; dijkstra;-
 (3)m%2w的余数有限，问题转换为求回到2号时，取得各个余数的最短路径-
 用dijkstra求出所有上述路径，最后加上2w直至大于k后比较各个路径的长度,取最小值;.
 
-CodeForce-574D;Caution_X;20191019;dp;-
+CodeForces-574D;Caution_X;20191019;dp;-
 给定一个有小正方形组成的不规则图形，现在进行操作:每次都消去暴露在外面的小正方形，问需要几次操作才能消去所有小正方形？;-
 (1) dp1[i]:=以第i列为最后一列从前往后可以得到的连续上升子序列-
 (2) dp2[i]:=以第i列为最后一列从后往前可以得到的连续上升子序列-
@@ -78,7 +84,7 @@ poj-3256;Caution_X;20191019;dfs;-
 (1) dfs得出每个岛能够使多少牛到来-
 (2) 若该岛能够使k头牛都到，则该岛满足条件;.
 
-CodeForce-577B;Caution_X;20191019;dp;-
+CodeForces-577B;Caution_X;20191019;dp;-
 给一个序列，找一个子序列使之mod m =0;-
 dp[i]:表示取模后得到了i-
 遍历序列，对每一个元素更新dp，判断能否得到dp[0];.
@@ -107,13 +113,13 @@ hdu-6029;Caution_X;20191017;implementation;-
 (1)显然n为奇数不可能，当n为偶数时进入(2)-
 (2)从后往前遍历，保证操作1的个数始终大于操作2的个数即可;.
 
-CodeForce-192D;Caution_X;20191017;greedy;-
+CodeForces-192D;Caution_X;20191017;greedy;-
 n个广场，每个广场都有相应的使用费，现在反对派有m天时间，政府有k块钱，反对派想要尽可能使用点数小的广场，-
 现在反对派每天可以申请一个广场，政府则会用手上的钱租用这个广场（除非政府没钱或者这个广场是最后一个广场），问反对派可以拿到的最好的广场。;-
 (1)为了结果最优，假定反对派在最后一天到来之前都挑选最贵的广场-
 (2)到了最后一天:从广场1开始遍历，如果我们选择的这个广场在之前还没有被使用，那么这个广场就是最优广场，如果这个广场在之前已经被使用过了，那么我们就找找有没有还没有使用过的广场（序号偏后）可以替代这个广场;.
 
-CodeForce-222C;Caution_X;20191012;math;-
+CodeForces-222C;Caution_X;20191012;math;-
 给出分子分母，求通分。（分子分母以一系列数的乘积给出）;-
 (1)分别把分子分母分解质因数-
 (2)通分;-
@@ -122,7 +128,7 @@ CodeForce-222C;Caution_X;20191012;math;-
 ②：用原来分子的乘积和分母的质因数相消，再用原来分母的乘积和分子的质因数相消-
 采用方案②.
 
-CodeForce-176C;Caution_X;20191012;implementation;-
+CodeForces-176C;Caution_X;20191012;implementation;-
 给定一个棋盘，两个棋子，双方轮流操作，A先走，每次移动一个棋子在相邻格子一格，B后走，每次可以在一个格子涂胶水，如果两个棋子可以重合，A赢，否则B赢;-
 (1)如果棋盘“非常大”，可以猜想B一定会赢-
 (2)此时我们讨论A赢得极限情况。-
@@ -158,7 +164,7 @@ n个人过桥，每个人过桥用时已给出，桥只能承载两个人，过�
 (3)每次以四人为单位选择过河方式直到剩下的人不足四人为止;-
 思维误区：容易认为方案一是唯一最有效方案.
 
-CodeForce-359C;Caution_X;20191004;math;-
+CodeForces-359C;Caution_X;20191004;math;-
 计算s,t的gcd。-
 输入a0,a1,a2,.....an,x-
 s=x^(a0+a1+a2+....+an)-
@@ -190,7 +196,7 @@ poj-2935;Caution_X;20191004;bfs;-
 (2)常规bfs;-
 注意本题的建图.
 
-CodeForce-359C;Caution_X;20191004;math;-
+CodeForces-359C;Caution_X;20191004;math;-
 计算s,t的gcd。-
 输入a0,a1,a2,.....an,x-
 s=x^(a0+a1+a2+....+an)-
@@ -341,7 +347,7 @@ hdu-1493;Caution_X;20190930;DP;-
 (2) dp[i][1]=p[i]-
 (3) dp[i+k][j+1]+=dp[i][j]*p[k];.
 
-CodeForce-125D;Caution_X;20191002;enumeration, combinatorics;-
+CodeForces-125D;Caution_X;20191002;enumeration, combinatorics;-
 给定一个序列，把它分成两个非空子序列，每一个序列都是等差序列，如果可以输出两个子序列，否则输出No solution;-
 (1) 对每个数，要么在第一个子序列，要么在第二个子序列，根据鸽巢原理，将前三个元素放入两个数列必然有两个数在同一个数列，其中元素大于1的数列会形成一个公差，且公差d最多只有有三个值-
 (2) 根据其中一个公差d生成一个等差数列，然后将剩下的数放在另一个数列，判断另一个数列是不是等差数列-
@@ -380,7 +386,7 @@ hdu-1760;Caution_X;20190929;DFS, game;-
 (2) 博弈中的必败态：若当前状态到达的所有状态都是必胜态，则当前状态为必败态。-
 (3) DFS直到不能再放方块，则不能再放方块的那个状态为必败态，然后往前回溯直到最初的状态即可;.
 
-CodeForce-117C;Caution_X;20190930;DFS;-
+CodeForces-117C;Caution_X;20190930;DFS;-
 给定一个有向图，边权都为1，问能否找到权值和为3的环，找到则输出对应的点标号，否则输出-1;-
 (1) vis[]表示该点是否访问过-
 (2) 从一个未被访问过的点开始DFS，找到与该点相连且未被访问过的点继续DFS-
@@ -436,7 +442,7 @@ hdu-1262; Caution_X; 20190927; brute force, Eular filter;-
 给定一个数n，输出a,b满足a+b=n且a,b为素数且|a-b|最小;-
 欧拉筛预处理素数，然后遍历所有素数即可，循环结束条件为素数大于n/2;.
 
-CodeForce-113B; Caution_X; 20190927; DP;-
+CodeForces-113B; Caution_X; 20190927; DP;-
 求多个数列的LCS;-
 (1)dp[i]:表示以数字i结尾得到的LCS，pos[i][j]表示数字j再第i个数列的位置，cnt[i]表示数字i出现了几次-
 (2)从每个数列第一个数开始往后遍历，当cnt[i]=k时说明i可以作为LCS的一部分了-
