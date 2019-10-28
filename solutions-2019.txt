@@ -1,8 +1,37 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
-HDU-1165; Kaeya; 20191026; math;-
+HDU-6351; Kaeya; 20191027; math,dfs;-
+给定n和k，k次操作，每次可以将n中的两个位上的数调换位置，求n能取得的最大值与最小值;-
+(1)对最大值，每次必定将最大的数放在最高位，最小值同理，这样k大于10则一定能取所有数排成的最大值与最小值-
+(2)k<10时，对于数相同的情况要考虑最优解，即放在不同位置上取得的值-
+确定k的数目较小后，通过dfs搜索每种k取值的最优解，取出现过的最大值与最小值即可;.
 
+POJ-3544; Kaeya; 20191027; math;-
+有n只猪，重量wi，n个城镇，距离di，价格pi，在一条射线上带n只猪从0出发，每经过一个城镇卖一头猪，路程每只猪消耗wi*di*t的钱，卖出赚的wi*pi，问在每只猪在哪个城镇卖赚的钱最多;-
+(1)每只猪独立，可以看作每只猪从起到出发，到最佳的城镇卖掉，此时这只猪赚的钱为wi*(pi-di*t)-
+(2)乘法求和，大的数乘大的数取得的值最大，将ci=(pi-di*t)预处理储存并排序，同时对wi排序，排序后相同位置的wi与cj相乘求和即为最大值-
+在输入时记录各个位置猪的id和城镇的id，排序后将城镇id绑定对应猪的id上，再对猪的id排序后输出城镇id即为所求;.
+
+CodeForces-551B; Kaeya; 20191027; string;-
+给三个字符串a、b、c，要求改变a中字母顺序使得与b、c相同的不重叠子串在a中出现的次数和最多;-
+(1)a中顺序可以任意改变，可以直接统计a中各个字母的个数-
+(2)a字母有限，如果b、c不同，b、c分别出现次数的比率会影响bc出现次数的总和-
+可以通过枚举b的个数，从0~(a中最大限度的包含b串)，然后根据每个b的个数计算此时c能出现的个数，比较找出最大解;.
+
+CodeForces-552C; Kaeya; 20191026; math;-
+有101个砝码重量分别为w0次幂，w1次幂……w100次幂，给出物重n，和w，将物品和任意砝码放在天平两侧，问能否使天平平衡。
+(1)可以将n转化为w进制，每个位权只有一个相同重量的砝码-
+(2)对应位权上为1时，需要将一个位权相同重量的砝码放在天平另一端，来和本位平衡-
+(3)对应位权上为w-1时，需要将一个位权相同重量的砝码放在物品同一侧，使得本位进位，下位+1，本位剩余0-
+(4)对于位权上其他取值，均无法通过任意一个砝码使天平平衡，另外位权超过w100次幂的位上有值也不可能使天平平衡-
+从低位到高位，按上述规则逐一判断，中途有不满足条件则不能平衡，反之则可以平衡;.
+
+HDU-1165; Kaeya; 20191026; math;-
+给出一个递归式，求输入m，n时，计算的结果;-
+(1)m<=3，可以尝试将m的情况枚举-
+(2)对于每个m通过打表可以找出n与答案的关系-
+(3)m==3时计算稍微赋值，因m==3时n<24所以可以离线求出所有解;.
 
 HDU-2282; Kaeya; 20191024; maximum matching;-
 n盒子围成一个环，一共不超过n个巧克力，给出每个盒子初始巧克力个数，要求最后每个箱子只能不超过一颗巧克力，问最小步数;-
