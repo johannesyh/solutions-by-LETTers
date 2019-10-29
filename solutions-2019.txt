@@ -1,6 +1,35 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+hdu-6531;Caution_X;20191028;exhaustion;-
+输入n,k，对n进行k次换位操作-
+(换位操作：例如1234中1，3换位得到3214或者1234中1和1本身进行换位，得到1234)-
+输出：完成k次换位操作后得到的最小值和最大值;-
+（1）枚举全排列-
+（2）对所有的交换方法进行尝试，计算交换次数-
+（3）如果交换次数小于等于k，更新最大值或最小值;-
+换位对象可以是本身-
+本题不能用的贪心思路：找最大值时每次从后往前选择最大的数和准备交换的较小数交换-
+例如6299 -> 9396 -> 9936 （实际答案9963）.
+
+hdu-5974;Caution_X;20191028;math;-
+输入a,b，问是否存在x,y满足x+y=a && lcm(x,y)=b，若存在，输出一组(x,y);-
+数论知识铺垫：-
+若i,j互质，则i+j和i*j互质-
+证明：-
+假设i,j互质但是i+j和i*j不互质，则(i+j)*k=i*j----①-
+两边同时%i得j*k%i=0,因为i，j互质，假如①能成立，你那么k%i一定为0-
+假设k%i=0，设k=m*i，k代入①得i*i*m+m*i*j=i*j，两边同时%j得到i*i*m%j=0-
+因为i，j互质，则m%j=0，设m=h*j (h>1)，则k=h*i*j-
+那么①：(i+j)*h*i*j=i*j   =>  (i+j)*h=1，显然该等式不成立，即k%i=0不成立-
+又因为k%i=0不成立，所以(i+j)*k=i*j不成立，所以(i+j)和i*j互质。-
+本题分析：-
+设g=gcd(x,y)，i=x/g,j=y/g，-
+那么i*j*g=lcm(x,y)=b, (i+j)*g=a-
+因为i,j互质，则i+j和i*j互质，gcd(a,b)=gcd((i+j)*g,i*j*g)=g=gcd(x,y)  => gcd(a,b)=gcd(x,y)---②-
+由x+y=a,lcm(x,y)=b,gcd(a,b)=gcd(x,y)三式联立求解一元二次方程即可;-
+输出的x,y满足x<y（题目没有明说）若输出结果为x,y，x,y符合条件但是x>y,会WA.
+
 HDU-6351; Kaeya; 20191027; math,dfs;-
 给定n和k，k次操作，每次可以将n中的两个位上的数调换位置，求n能取得的最大值与最小值;-
 (1)对最大值，每次必定将最大的数放在最高位，最小值同理，这样k大于10则一定能取所有数排成的最大值与最小值-
