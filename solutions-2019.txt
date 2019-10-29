@@ -1,6 +1,22 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-200D;Caution_X;20191029;string manipulation;-
+输入n个函数模型-
+输入m个变量-
+输入k个函数-
+问：输入的k个函数有几个符合函数模型;-
+用结构体存函数的函数名和变量，然后暴力匹配;-
+一道阅读题.
+
+hdu-5920;Caution_X;20191029;implementation;-
+给定一个数n，把n拆成若干个数相加，且这若干个数是回文串-
+输出：输出拆成了多少个数以及每一个数的大小;-
+把一个数随机拆成两个回文串显然十分不现实。-
+我们可以把一个按照它所能拆的最大回文串来拆：n=n1(回文串)+n2-
+若n2不是回文串，n2代替n的位置继续拆出新数，若n2也是回文串，结束，输出答案。;-
+n=10特判.
+
 hdu-6531;Caution_X;20191028;exhaustion;-
 输入n,k，对n进行k次换位操作-
 (换位操作：例如1234中1，3换位得到3214或者1234中1和1本身进行换位，得到1234)-
