@@ -1,6 +1,31 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-567D;Caution_X;20191031;implementation;-
+给定1×N的地图，地图上有k条小船，每条小船占用空间1×a，现在输入m个数，-
+每一个数xi表示检查第xi位置是否一定有船。输出：若第i次检查一定能够检查出船，那么输出i;-
+（1）第一次放：给定一个区间[1,N]，设该区间最多可以放的船数x，则x*a+(x-1)=N -
+=> x=(N+1)/(a+1)-
+（2）不是第一次放：设检查第x个位置，那么我们可以放船的区间就在[1,x-1)和(x+1,N],-
+记sum为检查到第i步可以放的船数，那么执行了第x次检查之后sum = sum - (r-l)/(a+1) +(x-l)/(a+1) + (r-x)/(a+1)，-
+如果sum<k，那么第i步检查一定会发现船，输出i;.
+
+CodeForces-552C;Caution_X;20191031;implementation;-
+给定两个数m,w，现有一个天平，和若干个砝码，砝码质量w^0,w^1,w^2,w^3......w^n。-
+问能否通过质量m的物体和若干个砝码使得天平平衡;-
+（1）把数m转化成w进制，p[i]存w进制从右到左第i个位置的大小-
+（2）如果任意i满足p[i]<=1那么一定可以使得天平平衡（左边m，右边对应w进制为1的砝码w^i）-
+（3）对于p[i]>1的数就判断能否转化成p[i]<=1&&p[i+1]<=1,比如w进制第i位是w-1，而第i+1位是0-
+那么就可以写成p[i]=-1,p[i+1]=1,最后再判断是不是所有p[i]<=1即可（p[i]为-1说明w^i重的砝码和质量m物体放在了同一边）;-
+每个砝码只用一次.
+
+poj-3682;Caution_X;20191031;math;-
+有一个人每天抛一次硬币，直到抛出了K次正面向上才会停止，第i天的金钱花费是2*i-1，现在输入-
+K，问花费金钱的数学期望;-
+设E[i],F[i]，E[i]表示抛出i次正面向上时的期望天数，F[i]表示第i天的花费金钱数学期望-
+（1）E[i]=1/p+W[i-1]-
+（2）F[i] = p*(F[i]-1 + 2 * E[i] -1)/*第i天正好得到正面向上*/ + (1-p)*(F[i] + 2 * （E[i]+1） -1) /*第i天没有得到正面向上*/。;.
+
 CodeForces-200D;Caution_X;20191029;string manipulation;-
 输入n个函数模型-
 输入m个变量-
