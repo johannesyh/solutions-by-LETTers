@@ -1,7 +1,7 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
-CodeForces-200D;Caution_X;20191029;string;-
+CodeForces-200D;Caution_X;20191029;strings;-
 输入n个函数模型-
 输入m个变量-
 输入k个函数-
