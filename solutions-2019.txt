@@ -1,6 +1,12 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-5920; Kaeya; 20191031; string;-
+给出一个大数最多1000位，将其写成不多于50个回文数的和;-
+(1)用一个数的前面一半构造回文数，如124321，则可以构造123321,所以每次取前半部分-1的数构造回文数-
+(2)分奇偶讨论，使长度等于该数,则该数减去构造的回文数后长度变为原来的一半-
+重复上述步骤直至长度变为1，则找出的所有数均为回文数，个数最多为log2(1000);.
+
 HDU-6351; Kaeya; 20191027; math,dfs;-
 给定n和k，k次操作，每次可以将n中的两个位上的数调换位置，求n能取得的最大值与最小值;-
 (1)对最大值，每次必定将最大的数放在最高位，最小值同理，这样k大于10则一定能取所有数排成的最大值与最小值-
