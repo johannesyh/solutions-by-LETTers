@@ -1,5 +1,28 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
+ 
+hdu-6709;Caution_X;20191102;greedy;-
+输入钓一条鱼的时间，每条与需要的烹饪时间，问从鱼塘里吊完所有鱼并完成烹饪需要多少时间;-
+（1）计算在烹饪时间内可以钓的整数条鱼-
+（2）若在烹饪时间内可以钓完所有鱼，则ans=钓第一条鱼的时间+烹饪时间-
+（3）若在烹饪时间内无法钓完所有的鱼，则需要在（2）的基础上加上正在钓但是锅里没鱼的时间;.
+
+poj-3731;Caution_X;20191102;math;-
+有一个N×M的地图，起点(0,0),终点(x,y)-
+只能向前走或者向右走-
+问从起点到终点有多少种不同的走法;-
+（1）根据地图终点可以把地图分成4个象限-
+（2）每一个象限选择哪些路，选择多少条路，（可以绕很多个圈）构成了不同的路径-
+（3）对四个象限，分别计算在每一个象限选择了几条路，确定了选择几条路后用组合数计算在该象限的不同走法，最后累加;-
+对于含起点的区间可以选择的路少一条。-
+能够绕的最大圈数取决于四个象限中路径最少的那个象限的路数-
+根据确定最大圈数的象限的不同，最后一圈有不同的处理：-
+①如果最大圈数由y∈[0,M-y]区间确定，所有象限可选路数不变-
+②如果最大圈数由y∈[0,N-x]区间确定，下一象限可选路数+1-
+③如果最大圈数由y∈[0,y]区间确定，下一象限可选路数+1，再下一象限可选路数+1-
+④如果最大圈数由y∈[0,x]区间确定，下一象限可选路数+1，再下一象限可选路数+1，再下一象限可选路数+1-
+这是因为最大圈数取决于最小的路数，对于其他象限实际上路数很大可能会大于最小数路，所以走到最后一圈时根据'确定最小路数的象限'的不同,-
+最后一圈的走法也会不同.
 
 CodeForces-567D;Caution_X;20191031;implementation;-
 给定1×N的地图，地图上有k条小船，每条小船占用空间1×a，现在输入m个数，-
