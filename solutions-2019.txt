@@ -1,5 +1,28 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
+
+poj-3685;Caution_X;20191104;binary search;-
+给定一个N×N矩阵的计算公式，问这个矩阵第M小的元素是？-
+i^2 + 100000 × i + j^2 - 100000 × j + i × j;-
+在j确定的情况下，f(i)是增函数-
+（1）二分枚举该元素mid-
+（2）对每一列进行枚举，之后二分求出该列比mid小的数的个数-
+（3）若比mid小的数大于M，更新ans;-
+不能打表找规律，当n足够大时矩阵的规律会发生变化.
+
+CodeForces-523C;Caution_X;20191104;implementation;-
+给定两个字符串s,t，问把t分成两个字符串，每一个字符串都有s，有多少种分法;-
+（1）正向遍历t，找出能够完整得到s的串的最小末尾下标i-
+（2）反向遍历t，找出能够完整得到s的串的最大末尾下标j-
+（3） ans=j-i(j>i)，否则-1 ;.
+
+hdu-5256;Caution_X;20191104;LIS,math;-
+我们有一个数列A1,A2...An，你现在要求修改数量最少的元素，使得这个数列严格递增。其中无论是修改前还是修改后，每个元素都必须是整数。-
+请输出最少需要修改多少个元素。;-
+如果数列没有重复元素，那么ans=len-LIS-
+如果有重复元素，可以预处理a[i] -> a[i]-i-
+然后求出a[i]-i的LIS'，ans=len-LIS';-
+答案不是直接len-LIS，比如1 2 3 3 3 4，ans=3而不是2.
  
 hdu-6709;Caution_X;20191102;greedy;-
 输入钓一条鱼的时间，每条与需要的烹饪时间，问从鱼塘里吊完所有鱼并完成烹饪需要多少时间;-
