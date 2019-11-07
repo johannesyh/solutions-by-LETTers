@@ -1,6 +1,13 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+hdu-1285;Caution_X;20191107;topological sorting;-
+输入n,m，n为人数，m为m对约束关系，输出拓扑排序后的结果;-
+（1）用二维数组存储约束关系-
+（2）选择入度为0的点，标记，计入答案数组-
+（3）和选中的入度为0的点满足约束关系的点入度-1 -
+（3）所有点都被标记，结束;.
+
 poj-3685;Caution_X;20191104;binary search;-
 给定一个N×N矩阵的计算公式，问这个矩阵第M小的元素是？-
 i^2 + 100000 × i + j^2 - 100000 × j + i × j;-
