@@ -1,6 +1,11 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-5875； Kaeya; 20191104; math;-
+n个数，m次查询，每次给出l、r，求al%a（l+1）%a（l+2）%……%ar的值;-
+(1)小于模数的数取模后为自身，大于模数的数取模后小于模数-
+预处理找到每个位置右边第一个小于他的数，每次查询时只需要按这些数计算即可;.
+
 CodeForces-523C; Kaeya; 20191103; string;-
 给出两个字符串s，t，现在要将t分成两半，并且使得两部分都有有子序列s，问多少种分法;-
 从前找第一个为s的子序列的最后一个字母位置，从后找最后一个为s的子序列的第一个字母的位置，两者的差值即为所求;-
