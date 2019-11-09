@@ -1,6 +1,24 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+poj-1330;Caution_X;20191109;dfs;-
+给定一棵树（权值∈[1,n]且不重复），给定整数x,y，问x，y的最近公共祖先的值是多少;-
+（1）对x进行dfs，把沿途遍历到的所有节点存入set<int>-
+（2）对y进行dfs，然后判断y的祖先能否在set<int>里被找到，若被找到，则当前值就是最近祖先的值;.
+
+CodeForces-479D;Caution_X;20191109;binary search,greedy;-
+有一把尺子，尺子上有n个刻度A[i]，问能否通过已知的刻度测出长度x和长度y？-
+输出需要补充的刻度点个数和对应的值;-
+需要补充的刻度点数只能是0，1，2-
+需要补充的点数为0时可以直接判断-
+判断能否只补充一个刻度点：①记tx=A[i]+x,表示可以在A[i]右边得出一个刻度能够测出x-
+再二分查找判断(tx+y)或者(tx-y)在不在已知刻度中，若在，则一个刻度点tx即可，同理，②记ty=A[i]+y，-
+重复类似①的操作，只要①，②有一个满足条件即可，若都不满足时:记tx=A[i]-x，表示能够在-
+刻度点A[i]左边找到一个刻度点测出x，记ty=A[i]-y，同理操作。若通过上述操作能够找出，则-
+只需要补充一个刻度点，否则，需要补充两个刻度点。;-
+重点在于点数1和点数2的判断，点数1需要特判-
+比如x=6,y=7，已知的刻度点有4，5，那么只要补充一个刻度点11即可.
+
 hdu-1285;Caution_X;20191107;topological sorting;-
 输入n,m，n为人数，m为m对约束关系，输出拓扑排序后的结果;-
 （1）用二维数组存储约束关系-
