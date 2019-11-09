@@ -1,7 +1,13 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
-HDU-5875； Kaeya; 20191104; math;-
+HDU-5256; Kaeya; 20191104; dp,math;-
+给出一个序列a，问需要修改多少个数使得序列严格上升;-
+(1)序列1~n严格上升，让序列a的每个数减去对应下标得到序列b-
+(2)b中后面元素值不小于前面的数时，a中对应的数前面的一定比后面的小-
+对b求最长不下降子序列长度即为不用修改的数，用n减去即为所求;.
+
+HDU-5875; Kaeya; 20191104; math;-
 n个数，m次查询，每次给出l、r，求al%a（l+1）%a（l+2）%……%ar的值;-
 (1)小于模数的数取模后为自身，大于模数的数取模后小于模数-
 预处理找到每个位置右边第一个小于他的数，每次查询时只需要按这些数计算即可;.
