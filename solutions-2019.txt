@@ -1,6 +1,12 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-483B; Kaeya; 20191109; BinarySearch;-
+找一个最小的v，使得1~v中有cn1个不被x整除的数和cn2个不被y整除的数;-
+(1)v/x-v/x/y个数只被x整除，cn2中可以直接包含这些数，同理cn1中可以直接包含只被y整除的数-
+(2)v-v/x-v/y+v/x/y个数能被cn1或cn2包含-
+按以上两个规则，二分查找，可以查找出最小v;.
+
 HDU-5256; Kaeya; 20191104; dp,math;-
 给出一个序列a，问需要修改多少个数使得序列严格上升;-
 (1)序列1~n严格上升，让序列a的每个数减去对应下标得到序列b-
