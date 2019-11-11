@@ -1,6 +1,19 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-466B;Caution_X;20191111;brute-force;-
+给定a,b,n.求满足a'*b'>=6*n&&a'>=a&&b'>=b的a'*b'最小值及a',b';-
+（1）若a，b直接满足条件，输出-
+（2）欲求(a+i)*(b+j)>=6*n，暴力枚举所有i,i∈[0,2e7]，然后求出对应的j，不断更新a'*b'和a',b';.
+
+ch-0104;Caution_X;20191111;bit,brute-force;-
+输入n，m，接下来进行n种操作，分别是&或者|或者^某个数，假设初始值∈[0,m]，问是的最终答案最大的初始值是多少;-
+（1）遍历每一个位k，让每一个位进行n次操作-
+（2）当且仅当满足-
+	a) 第k位取1时初始值小于m-
+	b)若该值取1，则n次运算后还是取1-
+时，第k位取1，否则取0;.
+
 hdu-5952;Caution_X;20191110;dfs,graph;-
 给定点数，边数，问包含有x个点的完全图种类数;-
 （1）选择一个点作为起点，记录该起点的所有连通点，dfs（该点）此时完全图有两个点-
