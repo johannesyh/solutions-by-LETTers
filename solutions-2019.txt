@@ -1,6 +1,10 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-5950; Kaeya; 20191113; Fast power of matrix;-
+给出a,b,n，f(1)=a,f(2)=b,f(i)=f(i-1)+2*f(i-2)+n^4，求f(n);-
+递推式，数据量大，考虑推出对应矩阵，矩阵快速幂求解;.
+
 HDU-5952; Kaeya; 20191111; dfs;-
 给出一张无向图，求图中有多少个大小为s的连通图;-
 (1)顶点数最多100，边数最多1000，时间给4秒，可以考虑dfs-
