@@ -1,5 +1,27 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
+ 
+poj-3889;Caution_X;20191116;recursion,fractal;-
+给定城市等级N，每个城市都有4^N个房子，从左上角开始沿着路数，编号分别是0,1,2,3,4.......-
+问：N级城市中编号为S，D的两个房子的距离之间的距离是多少，边长度1记为距离10。;-
+（1）关键点在于找到N级城市下两个房子的坐标(x,y)-
+（2）可以递归N-1级城市下S，D两个房子的编号，递归到0级城市返回(0,0)-
+递归过程要点:-
+N级城市编号M的房子在N-1级城市编号为M%2^(2N-2)-
+可以用M/(2^(2N-2))来判断N级城市下编号M的房子来自于N-1级城市的哪一个象限-
+记m=M/(2^(2N-2)),len=2^(N-1)-
+m=0 return (y,x)-
+m=1 return (x,y+len)-
+m=2 return (x+len,y+len)-
+m=3 return (2len-y-1,len-x-1) ;.
+
+hdu-6228;Caution_X;20191116;dfs;-
+给定一棵树，n个点，现在有k种染料来给这些点上色，颜色都为i的点之间的所有边组成集合ei,-
+问：e1∩e2∩......∩ek;-
+（1）以一条边为例，如果该边两端向外伸展至少有k个节点，则该边一定满足条件-
+（2）选择一个点dfs，计算从每一个点对某个方向延申能够多少个点，记能够延申的点数num[i]-
+（3）遍历每个点，若num[i]>=k&&n-num[i]>=k则该点在该方向上延申出的边符合条件-
+PS:n-num[i]就是点i在延申方向的反方向上的点数;.
 
 CodeForces-466B;Caution_X;20191111;brute-force;-
 给定a,b,n.求满足a'*b'>=6*n&&a'>=a&&b'>=b的a'*b'最小值及a',b';-
