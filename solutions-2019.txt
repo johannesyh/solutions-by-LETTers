@@ -1,6 +1,19 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+CodeForces-670C;Caution_X;20191118;discretization;-
+有n个人看电影，用输入数字[1,1e9]来表示每个人会的语言，有m场电影，-
+标号分别是1到m，每场电影后有两个数字，表示这场电影的语音是语言b[i]，-
+字幕是语言c[i]，现在选择一场电影，输出标号，要求这场电影能够使得最多的人听懂语言，在听懂语言的前提下要求看懂字幕的人最多。;-
+（1）离散化输入的代表语言的数字并记录各种语言都有多少人会-
+（2）对每一场电影进行处理，将该场电影对应的语言标号和字母标号替换成对应的会的人数-
+（3）根据题意对结构体进行排序，输出答案;.
+
+poj-2018;Caution_X;20191118;binary search;-
+给定正整数数列A[]，求一个平均值最大的，长度不小于L的（连续的）子段，输出该平均值*1000;-
+（1）二分枚举所有的平均值-
+（2）每一次二分，将A[]-mid，之后求前缀和。判断所取子段平均值是否大于等于mid只要判断选取区间累加是否大于等于0即可;.
+
 bzoj-1218;Caution_X;20191117;Prefix Sum;-
 输入：N，R，xi,yi,vi，表示N个点，二维矩阵a[xi][yi]=vi-
 现在用长度为R的矩阵作为子矩阵，问这个矩阵权值和的最大值;-
