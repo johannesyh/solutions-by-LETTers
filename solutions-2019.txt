@@ -1,6 +1,35 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+poj-3784;Caution_X;20191119;对顶堆;-
+依次输入N个数，每当输入的数是第奇数个时，输出当前数列的中位数;-
+对顶堆模板题-
+建立两个二叉堆，一个小根堆，一个大根堆。读入时设当前序列长度M,-
+维护：-
+（1）序列中从小到大排名1~M/2 的数在大根堆-
+（2）序列中从小到大排名M/2+1~M 的数在小根堆-
+当其中一个堆元素过多，则放入另一个堆-
+（3）中位数=小根堆的最大元素;.
+
+ch-0502;Caution_X;20191119;sort;-
+给定N×M的矩阵，矩阵有T个点表示cl喜欢取得店，坐标为(x,y)，-
+现在cl希望能够通过交换左右两个元素位置或者上下两个元素位置（第1行可以直接和最后一行交换，即构成环）使得这个矩阵的每行每列喜欢的店的数目相等，-
+或者每行喜欢的店相等，或者每列喜欢的店相等，否则输出"impossible"，-
+如果能够满足条件，输出"both"+最少交换次数或者"row"+最少交换次数或者"column"+最少交换次数;-
+（1）对行和列分开进行讨论，二者是相互独立的-
+（2）如果T%N(M)为0，那么行(列)最终可以通过交换来满足题意-
+（3）那么问题就在于交换次数，如果不考虑第1行可以和最后一行交换，-
+那么就相当于是一个“均分纸牌”问题，现在考虑了环的存在，我们只要找到一个不发生交换的点，使之断开，那么环就变成了链，可以直接计算。-
+（4）设C[]表示当前行（列）有几个喜欢的店，记A[]=C[]-T/N(M)，当A[]为0时，-
+那么当前行（列）不需要进行交换，记S[]为A[]的前缀和，当S[N(M)]为0时不需要再进行交换-
+（5）现在问题在于选择那个点来断开，假设选择了第k个点断开，那么之后每一个点的前缀和都要-S[k]-
+（6）最少步数为：Σ(i=1 -> i=N(M)) {s[i]-s[k]}的最小值，解法同ch-0501;.
+
+ch-0501;Caution_X;20191119;sort;-
+一条数轴上有n个点，现在要求在数轴上选择一个点，使各个点到该点距离最短;-
+假设选择了一个点s，s左边p个点，右边q个点，那么s右移长度1时，若p>q，-
+答案+(p-q)，左移一个点时答案-(p-q)，p>q时同理可推。由此可知，当s取中位数时，距离最短;.
+
 CodeForces-670C;Caution_X;20191118;discretization;-
 有n个人看电影，用输入数字[1,1e9]来表示每个人会的语言，有m场电影，-
 标号分别是1到m，每场电影后有两个数字，表示这场电影的语音是语言b[i]，-
