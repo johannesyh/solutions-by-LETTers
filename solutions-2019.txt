@@ -1,6 +1,30 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+poj-2299;Caution_X;20191121;merge_sort;-
+计算将一个数列变成正序数列至少需要几次操作。-
+操作:交换相邻两个数的位置;-
+（1）归排-
+（2）在归排的子过程中若出现i<j&&a[i]>a[j]，ans+=(j-j即将变换到的位置)。;.
+
+ch-0503;Caution_X;20191121;merge_sort;-
+你一定玩过八数码游戏，它实际上是在一个3*3的网格中进行的，1个空格和1~8这8个数字恰好不重不漏地分布在这3*3的网格中。-
+例如：-
+5 2 8-
+1 3 _-
+4 6 7-
+在游戏过程中，可以把空格与其上、下、左、右四个方向之一的数字交换（如果存在）。-
+例如在上例中，空格可与左、上、下面的数字交换，分别变成：-
+5 2 8       5 2 _      5 2 8-
+1 _ 3       1 3 8      1 3 7-
+4 6 7       4 6 7      4 6 _-
+奇数码游戏是它的一个扩展，在一个n*n的网格中进行，其中n为奇数，1个空格和1~n*n-1这n*n-1个数恰好不重不漏地分布在n*n的网格中。-
+空格移动的规则与八数码游戏相同，实际上，八数码就是一个n=3的奇数码游戏。-
+现在给定两个奇数码游戏的局面，请判断是否存在一种移动空格的方式，使得其中一个局面可以变化到另一个局面。;-
+将n*n的矩阵依次写成一行（空格除外）-
+n为奇数（本题n都是奇数）：只要两个矩阵排成一行后逆序数奇偶性相等即可-
+n为偶数：'逆序对数之差'和'两个局面下空格所在行数之差'奇偶性相等;.
+
 poj-3784;Caution_X;20191119;对顶堆;-
 依次输入N个数，每当输入的数是第奇数个时，输出当前数列的中位数;-
 对顶堆模板题-
