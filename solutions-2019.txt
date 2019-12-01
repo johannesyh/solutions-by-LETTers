@@ -1,6 +1,48 @@
 All entries comprise 7 parts which are OJ-ID, author, date of submission, tags, description modeling, major steps to solve it, warnings, with a colon stands between each pair of parts. When a new line is created, a hyphen is require for its previous line at the end.
 Each entry ends with a full stop and a blank line stands between any two neighbouring entries.
 
+HDU-5950; Kaeya; 20191113; Fast power of matrix;-
+给出a,b,n，f(1)=a,f(2)=b,f(i)=f(i-1)+2*f(i-2)+n^4，求f(n);-
+递推式，数据量大，考虑推出对应矩阵，矩阵快速幂求解;.
+
+HDU-5952; Kaeya; 20191111; dfs;-
+给出一张无向图，求图中有多少个大小为s的连通图;-
+(1)顶点数最多100，边数最多1000，时间给4秒，可以考虑dfs-
+(2)从小的点往后找避免重复计算-
+邻接表用于搜索较快，邻接矩阵用于查找判断较快;.
+
+CodeForces-483B; Kaeya; 20191109; Binary Search;-
+找一个最小的v，使得1~v中有cn1个不被x整除的数和cn2个不被y整除的数;-
+(1)v/x-v/x/y个数只被x整除，cn2中可以直接包含这些数，同理cn1中可以直接包含只被y整除的数-
+(2)v-v/x-v/y+v/x/y个数能被cn1或cn2包含-
+按以上两个规则，二分查找，可以查找出最小v;.
+
+HDU-5256; Kaeya; 20191104; dp,math;-
+给出一个序列a，问需要修改多少个数使得序列严格上升;-
+(1)序列1~n严格上升，让序列a的每个数减去对应下标得到序列b-
+(2)b中后面元素值不小于前面的数时，a中对应的数前面的一定比后面的小-
+对b求最长不下降子序列长度即为不用修改的数，用n减去即为所求;.
+
+HDU-5875; Kaeya; 20191104; math;-
+n个数，m次查询，每次给出l、r，求al%a（l+1）%a（l+2）%……%ar的值;-
+(1)小于模数的数取模后为自身，大于模数的数取模后小于模数-
+预处理找到每个位置右边第一个小于他的数，每次查询时只需要按这些数计算即可;.
+
+CodeForces-523C; Kaeya; 20191103; strings;-
+给出两个字符串s，t，现在要将t分成两半，并且使得两部分都有有子序列s，问多少种分法;-
+从前找第一个为s的子序列的最后一个字母位置，从后找最后一个为s的子序列的第一个字母的位置，两者的差值即为所求;-
+
+HDU-5455; Kaeya; 20191103; strings;-
+给出一个字符串，形成一个环（最后一个字符与第一个字符相连），问是否能完全由F中的元素构成，输出最少的元素个数-
+F0=“f”，F1="ff",F2="cff",F(n)=F(n-1)+"f";-
+从前往后，记录最前面的f个数，再记录每个c后面跟着的f个数，把最前面的f的个数加到最后一个c上，如果c后面个数小于2则不可能满足条件-
+坑点：给出的字符串由小写字母构成，即会有除cf以外的字母出现;.
+
+CodeForces-488B; Kaeya; 20191103; math;-
+4个数a,b,c,d要满足(a+b+c+d)/4=(b+c)/2=d-a，现在给出其中的0~4个数，问是否能找出其余的数使得式子成立;
+(1)由式子可以推出d==3a,b+c==4a-
+(2)按给出数的个数分情况讨论，按(1)判断给出的数是abcd中哪几个，然后按公式求得符合满足公式的剩下的数，只给出b和c时需再次判断是否满足a<b<c<d;.
+
 poj-3685;Caution_X;20191104;binary search;-
 给定一个N×N矩阵的计算公式，问这个矩阵第M小的元素是？-
 i^2 + 100000 × i + j^2 - 100000 × j + i × j;-
